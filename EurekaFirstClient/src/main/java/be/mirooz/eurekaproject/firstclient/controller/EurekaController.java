@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.logging.Logger;
 
 @RestController
@@ -27,9 +29,10 @@ public class EurekaController {
 
     @RequestMapping("/greeting")
     public Mono<String> greeting() throws InterruptedException {
+        Timestamp timestamp = Timestamp.from(Instant.now());
         logger.info("Execute client 1");
         Thread.sleep(3000);
         return Mono.just(String.format(
-                "Hello from '%s'!", eurekaClient.getApplication(appName).getName()));
+                "Hello from '%s at %s'!", eurekaClient.getApplication(appName).getName(),timestamp));
     }
 }
