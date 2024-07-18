@@ -8,7 +8,6 @@
         <groupId>be.mirooz.eurekaproject</groupId>
         <artifactId>EurekaProject</artifactId>
         <version>1.0-SNAPSHOT</version>
-
     </parent>
     <groupId>be.mirooz.eurekaproject.secondclient</groupId>
     <artifactId>EurekaSecondClient</artifactId>
@@ -61,4 +60,13 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
